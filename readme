@@ -1,0 +1,1 @@
+This is a simple template to deploy LXC containers to Promox using Terraform with Telmate Promox provider. Simply create and supply a .tfvars file and assign the variables to use this!
