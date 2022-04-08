@@ -50,6 +50,22 @@ on:
     - master
   pull_request:
 
+env:
+  cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+  apiurl: ${{ secrects.apiurl }}
+  username: ${{ secrects.username }}
+  rootpass: ${{ secrects.rootpass }}
+  node_name: ${{ secrects.node_name }}
+  host_name: ${{ secrects.host_name }}
+  lxc_template: ${{ secrects.lxc_template }}
+  ssh_public_keys: ${{ secrects.ssh_public_keys }}
+  cpucores: ${{ secrects.cpucores }}
+  storage_location: ${{ secrects.storage_location }}
+  disk_size: ${{ secrects.disk_size }}
+  nic_name: ${{ secrects.nic_name }}
+  virtbridge_name: ${{ secrects.virtbridge_name }}
+  ipv4address: ${{ secrects.ipv4address }}  
+
 jobs:
   terraform:
     name: 'Terraform'
@@ -68,9 +84,7 @@ jobs:
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
-      with:
-         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-
+         
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
