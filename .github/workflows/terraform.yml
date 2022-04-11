@@ -50,21 +50,6 @@ on:
     - master
   pull_request:
 
-env:
-  cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-  apiurl: ${{ secrects.apiurl }}
-  username: ${{ secrects.username }}
-  rootpass: ${{ secrects.rootpass }}
-  node_name: ${{ secrects.node_name }}
-  host_name: ${{ secrects.host_name }}
-  lxc_template: ${{ secrects.lxc_template }}
-  ssh_public_keys: ${{ secrects.ssh_public_keys }}
-  cpucores: ${{ secrects.cpucores }}
-  storage_location: ${{ secrects.storage_location }}
-  disk_size: ${{ secrects.disk_size }}
-  nic_name: ${{ secrects.nic_name }}
-  virtbridge_name: ${{ secrects.virtbridge_name }}
-  ipv4address: ${{ secrects.ipv4address }}  
 
 jobs:
   terraform:
@@ -102,3 +87,18 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve
+      env:
+          TF_VAR_apiurl: ${{ secrects.apiurl }}
+          TF_VAR_cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          TF_VAR_username: ${{ secrects.username }}
+          TF_VAR_rootpass: ${{ secrects.rootpass }}
+          TF_VAR_node_name: ${{ secrects.node_name }}
+          TF_VAR_host_name: ${{ secrects.host_name }}
+          TF_VAR_lxc_template: ${{ secrects.lxc_template }}
+          TF_VAR_ssh_public_keys: ${{ secrects.ssh_public_keys }}
+          TF_VAR_cpucores: ${{ secrects.cpucores }}
+          TF_VAR_storage_location: ${{ secrects.storage_location }}
+          TF_VAR_disk_size: ${{ secrects.disk_size }}
+          TF_VAR_nic_name: ${{ secrects.nic_name }}
+          TF_VAR_virtbridge_name: ${{ secrects.virtbridge_name }}
+          TF_VAR_ipv4address: ${{ secrects.ipv4address }}
