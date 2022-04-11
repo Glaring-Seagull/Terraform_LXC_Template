@@ -88,7 +88,7 @@ jobs:
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve
       env:
-          TF_VAR_apiurl: ${{ secrects.apiurl }}
+          TF_VAR_apiurl: ${{ secrets.apiurl }}
           TF_VAR_cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
           TF_VAR_username: ${{ secrets.username }}
           TF_VAR_rootpass: ${{ secrets.rootpass }}
