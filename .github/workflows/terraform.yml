@@ -72,7 +72,27 @@ jobs:
          
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init
+      uses: hashicorp/terraform-github-actions@master
+      with:
+        tf_actions_version: 0.12.13
+        tf_actions_subcommand: 'init'
+        tf_actions_working_dir: '.'
+        tf_actions_comment: true
+      env:
+        apiurl: ${{ secrets.apiurl }}
+        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        username: ${{ secrets.username }}
+        rootpass: ${{ secrets.rootpass }}
+        node_name: ${{ secrets.node_name }}
+        host_name: ${{ secrets.host_name }}
+        lxc_template: ${{ secrets.lxc_template }}
+        ssh_public_keys: ${{ secrets.ssh_public_keys }}
+        cpucores: ${{ secrets.cpucores }}
+        storage_location: ${{ secrets.storage_location }}
+        disk_size: ${{ secrets.disk_size }}
+        nic_name: ${{ secrets.nic_name }}
+        virtbridge_name: ${{ secrets.virtbridge_name }}
+        ipv4address: ${{ secrets.ipv4address }}
 
     # Checks that all Terraform configuration files adhere to a canonical format
    # - name: Terraform Format
@@ -87,18 +107,3 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve
-      env:
-          apiurl: ${{ secrets.apiurl }}
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          username: ${{ secrets.username }}
-          rootpass: ${{ secrets.rootpass }}
-          node_name: ${{ secrets.node_name }}
-          host_name: ${{ secrets.host_name }}
-          lxc_template: ${{ secrets.lxc_template }}
-          ssh_public_keys: ${{ secrets.ssh_public_keys }}
-          cpucores: ${{ secrets.cpucores }}
-          storage_location: ${{ secrets.storage_location }}
-          disk_size: ${{ secrets.disk_size }}
-          nic_name: ${{ secrets.nic_name }}
-          virtbridge_name: ${{ secrets.virtbridge_name }}
-          ipv4address: ${{ secrets.ipv4address }}
