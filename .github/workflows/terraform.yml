@@ -90,15 +90,15 @@ jobs:
       env:
           TF_VAR_apiurl: ${{ secrects.apiurl }}
           TF_VAR_cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          TF_VAR_username: ${{ secrects.username }}
-          TF_VAR_rootpass: ${{ secrects.rootpass }}
-          TF_VAR_node_name: ${{ secrects.node_name }}
-          TF_VAR_host_name: ${{ secrects.host_name }}
-          TF_VAR_lxc_template: ${{ secrects.lxc_template }}
-          TF_VAR_ssh_public_keys: ${{ secrects.ssh_public_keys }}
-          TF_VAR_cpucores: ${{ secrects.cpucores }}
-          TF_VAR_storage_location: ${{ secrects.storage_location }}
-          TF_VAR_disk_size: ${{ secrects.disk_size }}
-          TF_VAR_nic_name: ${{ secrects.nic_name }}
-          TF_VAR_virtbridge_name: ${{ secrects.virtbridge_name }}
-          TF_VAR_ipv4address: ${{ secrects.ipv4address }}
+          TF_VAR_username: ${{ secrets.username }}
+          TF_VAR_rootpass: ${{ secrets.rootpass }}
+          TF_VAR_node_name: ${{ secrets.node_name }}
+          TF_VAR_host_name: ${{ secrets.host_name }}
+          TF_VAR_lxc_template: ${{ secrets.lxc_template }}
+          TF_VAR_ssh_public_keys: ${{ secrets.ssh_public_keys }}
+          TF_VAR_cpucores: ${{ secrets.cpucores }}
+          TF_VAR_storage_location: ${{ secrets.storage_location }}
+          TF_VAR_disk_size: ${{ secrets.disk_size }}
+          TF_VAR_nic_name: ${{ secrets.nic_name }}
+          TF_VAR_virtbridge_name: ${{ secrets.virtbridge_name }}
+          TF_VAR_ipv4address: ${{ secrets.ipv4address }}
