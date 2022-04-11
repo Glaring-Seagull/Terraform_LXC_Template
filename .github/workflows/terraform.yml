@@ -88,17 +88,17 @@ jobs:
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve
       env:
-          TF_VAR_apiurl: ${{ secrets.apiurl }}
-          TF_VAR_cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          TF_VAR_username: ${{ secrets.username }}
-          TF_VAR_rootpass: ${{ secrets.rootpass }}
-          TF_VAR_node_name: ${{ secrets.node_name }}
-          TF_VAR_host_name: ${{ secrets.host_name }}
-          TF_VAR_lxc_template: ${{ secrets.lxc_template }}
-          TF_VAR_ssh_public_keys: ${{ secrets.ssh_public_keys }}
-          TF_VAR_cpucores: ${{ secrets.cpucores }}
-          TF_VAR_storage_location: ${{ secrets.storage_location }}
-          TF_VAR_disk_size: ${{ secrets.disk_size }}
-          TF_VAR_nic_name: ${{ secrets.nic_name }}
-          TF_VAR_virtbridge_name: ${{ secrets.virtbridge_name }}
-          TF_VAR_ipv4address: ${{ secrets.ipv4address }}
+          apiurl: ${{ secrets.apiurl }}
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          username: ${{ secrets.username }}
+          rootpass: ${{ secrets.rootpass }}
+          node_name: ${{ secrets.node_name }}
+          host_name: ${{ secrets.host_name }}
+          lxc_template: ${{ secrets.lxc_template }}
+          ssh_public_keys: ${{ secrets.ssh_public_keys }}
+          cpucores: ${{ secrets.cpucores }}
+          storage_location: ${{ secrets.storage_location }}
+          disk_size: ${{ secrets.disk_size }}
+          nic_name: ${{ secrets.nic_name }}
+          virtbridge_name: ${{ secrets.virtbridge_name }}
+          ipv4address: ${{ secrets.ipv4address }}
